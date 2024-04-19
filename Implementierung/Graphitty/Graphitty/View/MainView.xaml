@@ -1,0 +1,193 @@
+﻿<Controls:MetroWindow
+    x:Class="Graphitty.View.MainView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:local="clr-namespace:Graphitty.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Graphitty"
+    Width="1600"
+    Height="900"
+    Dialog:DialogParticipation.Register="{Binding}"
+    FontSize="{DynamicResource StandardFontSize}"
+    Icon="../images/Graphitty_Icon.ico"
+    mc:Ignorable="d">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoginCommand}" />
+        </i:EventTrigger>
+        <i:EventTrigger EventName="Closing">
+            <i:InvokeCommandAction Command="{Binding CloseCommand}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Controls:MetroWindow.Resources>
+        <Style TargetType="{x:Type GridSplitter}">
+            <Style.Setters>
+                <Setter Property="Background" Value="LightGray" />
+            </Style.Setters>
+        </Style>
+    </Controls:MetroWindow.Resources>
+    <Controls:MetroWindow.LeftWindowCommands>
+        <Controls:WindowCommands>
+            <Button
+                Click="toggleSettingsFlyout"
+                Content="&#xE713;"
+                FontFamily="Segoe MDL2 Assets" />
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.LeftWindowCommands>
+    <!--  Settings Flyout  -->
+    <Controls:MetroWindow.Flyouts>
+        <Controls:FlyoutsControl>
+            <Controls:Flyout
+                x:Name="Settings"
+                Width="Auto"
+                Header="Settings"
+                Position="Left"
+                Theme="Accent">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <GroupBox Grid.Row="0" Header="Available Databases">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <!--  Available Databases  -->
+                            <ListView
+                                Grid.Row="0"
+                                Grid.ColumnSpan="3"
+                                ItemsSource="{Binding AvailableDatabases, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"
+                                MouseDoubleClick="toggleSettingsFlyout"
+                                SelectedItem="{Binding SelectedDatabase, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="MouseDoubleClick">
+                                        <i:InvokeCommandAction Command="{Binding ConnectDatabaseCommand}" />
+                                    </i:EventTrigger>
+                                    <i:EventTrigger />
+                                </i:Interaction.Triggers>
+                            </ListView>
+                            <Button
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Command="{Binding RefreshAvailableDatabasesCommand}"
+                                Content="&#xE72C;"
+                                FontFamily="Segoe MDL2 Assets" />
+
+                            <Button
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Command="{Binding DeleteDatabaseCommand}"
+                                Content="Delete"
+                                Foreground="Red" />
+                            <Button
+                                Grid.Row="1"
+                                Grid.Column="2"
+                                Click="toggleSettingsFlyout"
+                                Command="{Binding ConnectDatabaseCommand}"
+                                Content="Connect" />
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Grid.Row="1" Header="Log-File">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Log File path:" />
+                            <Label Grid.Column="1" Content="{Binding Path, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" />
+                            <Button
+                                Grid.Column="2"
+                                Command="{Binding ChangePathCommand}"
+                                Content="Change" />
+                        </Grid>
+                    </GroupBox>
+
+                    <Label
+                        Grid.Row="3"
+                        Content="Graphitty made with &lt;3 by Marijan Petricevic, Christoph Hartmann, Clara Walendy, Jakob Dräger, Julius Meissner"
+                        Foreground="LightGray" />
+                </Grid>
+            </Controls:Flyout>
+        </Controls:FlyoutsControl>
+    </Controls:MetroWindow.Flyouts>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="5" />
+            <ColumnDefinition Width="4*" />
+            <ColumnDefinition Width="5" />
+            <ColumnDefinition Width="1.5*" />
+        </Grid.ColumnDefinitions>
+
+        <!--  LeftPanel  -->
+        <TabControl Grid.Column="0">
+            <TabItem Header="Graphs">
+                <local:GraphsView DataContext="{Binding GraphsViewModel}" />
+            </TabItem>
+            <TabItem Header="Filter">
+                <local:FiltersView DataContext="{Binding FiltersViewModel}" />
+            </TabItem>
+        </TabControl>
+        <!--  Splitter  -->
+        <GridSplitter
+            Grid.Column="1"
+            Width="5"
+            HorizontalAlignment="Stretch" />
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="5" />
+                <RowDefinition Height="1.2*" />
+            </Grid.RowDefinitions>
+
+            <!--  CenterPanel  -->
+            <local:GraphVisualizerView Cursor="Hand" DataContext="{Binding GraphVisualizerViewModel}" />
+
+            <!--  Splitter  -->
+            <GridSplitter
+                Grid.Row="1"
+                Height="5"
+                HorizontalAlignment="Stretch" />
+
+            <!--  BottomPanel  -->
+            <TabControl Grid.Row="2">
+                <TabItem Header="Properties">
+                    <local:PropertiesView DataContext="{Binding PropertiesViewModel}" />
+                </TabItem>
+                <TabItem Header="Console">
+                    <local:ConsoleView DataContext="{Binding ConsoleViewModel}" />
+                </TabItem>
+            </TabControl>
+        </Grid>
+
+        <!--  Splitter  -->
+        <GridSplitter
+            Grid.Column="3"
+            Width="5"
+            HorizontalAlignment="Stretch" />
+
+        <!--  RightPanel  -->
+        <TabControl Grid.Column="4">
+            <TabItem Header="Generator">
+                <local:GeneratorView DataContext="{Binding GeneratorViewModel}" />
+            </TabItem>
+            <TabItem Header="Correlations">
+                <local:CorrelationsTableView DataContext="{Binding CorrelationsTableViewModel}" />
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Controls:MetroWindow>

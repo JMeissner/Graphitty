@@ -1,0 +1,29 @@
+﻿<Application
+    x:Class="Graphitty.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Graphitty"
+    StartupUri="View/MainView.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- Font Sizes -->
+                <ResourceDictionary Source="./Style/FontSizes.xaml" />
+                <!--  Custom Styles  -->
+                <ResourceDictionary Source="./Style/TextBoxStyle.xaml" />
+                <ResourceDictionary Source="./Style/ButtonStyle.xaml" />
+                <!--  GraphVisualizer Theme  -->
+                <ResourceDictionary Source="./Style/VertexStyle.xaml" />
+                <!--  MahApps.Metro resource dictionaries. Make sure that all file names are Case Sensitive!  -->
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
+                <!--  Accent and AppTheme setting  -->
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+                <!--  DataTemplates  -->
+                <ResourceDictionary Source="./View/FactoryViewTemplates.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

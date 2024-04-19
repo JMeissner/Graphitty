@@ -1,0 +1,372 @@
+﻿<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2B2F6C54-07D7-4DE2-BA35-FC0EF200A6B0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Graphitty</RootNamespace>
+    <AssemblyName>Graphitty</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\Andy\Desktop\graphitty_executable\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Graphitty_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>39BA8629E8998342E4CE6BD1776BC1ABC43CF832</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommonServiceLocator, Version=2.0.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.2.0.1\lib\net45\CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="ControlzEx, Version=3.0.2.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net45\ControlzEx.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FontAwesome.WPF, Version=4.7.0.37774, Culture=neutral, PublicKeyToken=0758b07a11a4f466, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.WPF.4.7.0.9\lib\net40\FontAwesome.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="GraphX.PCL.Common, Version=2.3.6.0, Culture=neutral, PublicKeyToken=a6cdb671d651b60a, processorArchitecture=MSIL">
+      <HintPath>..\packages\GraphX.2.3.6.0\lib\net40-client\GraphX.PCL.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="GraphX.PCL.Logic, Version=2.3.6.0, Culture=neutral, PublicKeyToken=3b65ef85075e278f, processorArchitecture=MSIL">
+      <HintPath>..\packages\GraphX.2.3.6.0\lib\net40-client\GraphX.PCL.Logic.dll</HintPath>
+    </Reference>
+    <Reference Include="GraphX.WPF.Controls, Version=2.3.6.0, Culture=neutral, PublicKeyToken=bab23663f80c9e76, processorArchitecture=MSIL">
+      <HintPath>..\packages\GraphX.2.3.6.0\lib\net40-client\GraphX.WPF.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro, Version=1.6.1.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.6.1\lib\net45\MahApps.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.8.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.8.8\lib\net45\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.8.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.Entity.6.8.8\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism, Version=6.3.0.0, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Core.6.3.0\lib\net45\Prism.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism.Wpf, Version=6.3.0.0, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Prism.Wpf.6.3.0\lib\net45\Prism.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="QuickGraph, Version=3.6.61114.0, Culture=neutral, PublicKeyToken=f3fb40175eec2af3, processorArchitecture=MSIL">
+      <HintPath>..\packages\QuickGraphPCL.3.6.61114.2\lib\net40-client\QuickGraph.dll</HintPath>
+    </Reference>
+    <Reference Include="QuickGraph.Data, Version=3.6.61114.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QuickGraphPCL.3.6.61114.2\lib\net40-client\QuickGraph.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="QuickGraph.Graphviz, Version=3.6.61114.0, Culture=neutral, PublicKeyToken=f3fb40175eec2af3, processorArchitecture=MSIL">
+      <HintPath>..\packages\QuickGraphPCL.3.6.61114.2\lib\net40-client\QuickGraph.Graphviz.dll</HintPath>
+    </Reference>
+    <Reference Include="QuickGraph.Serialization, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QuickGraphPCL.3.6.61114.2\lib\net40-client\QuickGraph.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Migrations\201803151359068_InitialMigration.cs" />
+    <Compile Include="Migrations\201803151359068_InitialMigration.Designer.cs">
+      <DependentUpon>201803151359068_InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Model\Algorithms\Algorithm.cs" />
+    <Compile Include="Model\Algorithms\AlgorithmRunner.cs" />
+    <Compile Include="Model\Algorithms\BreadthFirstSearch.cs" />
+    <Compile Include="Model\Algorithms\CliqueSearch.cs" />
+    <Compile Include="Model\Algorithms\CompareBFS.cs" />
+    <Compile Include="Model\Algorithms\CompareProfile.cs" />
+    <Compile Include="Model\Algorithms\CompareTotalChromaticNumber.cs" />
+    <Compile Include="Model\Algorithms\Comparison.cs" />
+    <Compile Include="Model\Algorithms\TotalColoring.cs" />
+    <Compile Include="Model\Algorithms\VertexDegrees.cs" />
+    <Compile Include="Model\DataAccessLayer\GraphittyContext.cs" />
+    <Compile Include="Model\DataAccessLayer\IRepository.cs" />
+    <Compile Include="Model\DataAccessLayer\IUnitOfWork.cs" />
+    <Compile Include="Model\Filters\FilterAvgDegree.cs" />
+    <Compile Include="Model\Filters\FilterBoolBase.cs" />
+    <Compile Include="Model\Filters\FilterCompareBase.cs" />
+    <Compile Include="Model\Filters\FilterDenserBFS.cs" />
+    <Compile Include="Model\Filters\FilterDenserEqTCN.cs" />
+    <Compile Include="Model\Filters\FilterDenserHigherTCN.cs" />
+    <Compile Include="Model\Filters\FilterDenserProfile.cs" />
+    <Compile Include="Model\Filters\FilterDenserSmallerTCN.cs" />
+    <Compile Include="Model\Filters\FilterEntity.cs" />
+    <Compile Include="Model\Filters\FilterIsTC.cs" />
+    <Compile Include="Model\Filters\FilterLessDenseBFS.cs" />
+    <Compile Include="Model\Filters\FilterLessDenseEqTCN.cs" />
+    <Compile Include="Model\Filters\FilterLessDenseHigherTCN.cs" />
+    <Compile Include="Model\Filters\FilterLessDenseProfile.cs" />
+    <Compile Include="Model\Filters\FilterLessDenseSmallerTCN.cs" />
+    <Compile Include="Model\Filters\FilterMaxClique.cs" />
+    <Compile Include="Model\Filters\FilterMaxDegree.cs" />
+    <Compile Include="Model\Filters\FilterNumBase.cs" />
+    <Compile Include="Model\Filters\FilterNumCliques.cs" />
+    <Compile Include="Model\Filters\FilterNumEdges.cs" />
+    <Compile Include="Model\Filters\FilterNumVertices.cs" />
+    <Compile Include="Model\Filters\FilterRunTime.cs" />
+    <Compile Include="Model\Filters\FilterTCN.cs" />
+    <Compile Include="Model\Filters\IFilter.cs" />
+    <Compile Include="Model\GraphGeneration\Factories\DegreeRangeFactory.cs" />
+    <Compile Include="Model\GraphGeneration\Factories\FixedNumVerticesFactory.cs" />
+    <Compile Include="Model\GraphGeneration\Factories\MaxVerticesFactory.cs" />
+    <Compile Include="Model\GraphGeneration\GraphBuilder.cs" />
+    <Compile Include="Model\GraphGeneration\Generator.cs" />
+    <Compile Include="Model\GraphGeneration\IEdgeFactory.cs" />
+    <Compile Include="Model\GraphGeneration\IVertexFactory.cs" />
+    <Compile Include="Model\GraphGeneration\NextDenserGenerator.cs" />
+    <Compile Include="Model\Graphs\BFSCode.cs" />
+    <Compile Include="Model\Graphs\Edge.cs" />
+    <Compile Include="Model\Graphs\Graph.cs" />
+    <Compile Include="Model\Graphs\GraphEntity.cs" />
+    <Compile Include="Model\DataAccessLayer\Repository.cs" />
+    <Compile Include="Model\DataAccessLayer\UnitOfWork.cs" />
+    <Compile Include="Model\Graphs\Vertex.cs" />
+    <Compile Include="Model\GraphVisualizer\GraphToGUIConverter.cs" />
+    <Compile Include="Model\GraphVisualizer\GUIEdge.cs" />
+    <Compile Include="Model\GraphVisualizer\GUIGraph.cs" />
+    <Compile Include="Model\GraphVisualizer\GUIGraphArea.cs" />
+    <Compile Include="Model\GraphVisualizer\GUIGXLogicCore.cs" />
+    <Compile Include="Model\GraphVisualizer\GUIVertex.cs" />
+    <Compile Include="Style\GUIVertexControl.xaml.cs">
+      <DependentUpon>GUIVertexControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\ConsoleViewModel.cs" />
+    <Compile Include="ViewModel\CorrelationCellViewModel.cs" />
+    <Compile Include="ViewModel\CorrelationsTableViewModel.cs" />
+    <Compile Include="ViewModel\DegreeRangeFactoryViewModel.cs" />
+    <Compile Include="ViewModel\Events\DatabaseChangedEvent.cs" />
+    <Compile Include="ViewModel\Events\FilterAppliedEvent.cs" />
+    <Compile Include="ViewModel\Events\GraphEditedEvent.cs" />
+    <Compile Include="ViewModel\Events\SelectionChangedEvent.cs" />
+    <Compile Include="ViewModel\Events\WriteLogEvent.cs" />
+    <Compile Include="ViewModel\FiltersViewModel.cs" />
+    <Compile Include="ViewModel\FilterItemViewModel.cs" />
+    <Compile Include="ViewModel\FixedNumVerticesFactoryViewModel.cs" />
+    <Compile Include="ViewModel\GeneratorViewModel.cs" />
+    <Compile Include="ViewModel\GraphsViewModel.cs" />
+    <Compile Include="ViewModel\GraphVisualizerViewModel.cs" />
+    <Compile Include="ViewModel\IEdgeFactoryViewModel.cs" />
+    <Compile Include="ViewModel\IVertexFactoryViewModel.cs" />
+    <Compile Include="ViewModel\MaxVerticesFactoryViewModel.cs" />
+    <Compile Include="ViewModel\PropertiesViewModel.cs" />
+    <Compile Include="View\Converter\BindingProxy.cs" />
+    <Compile Include="View\Converter\BooleanToColorConverter.cs" />
+    <Compile Include="View\Converter\ComparisonColorConverter.cs" />
+    <Compile Include="View\Converter\FilterMultiValueConverter.cs" />
+    <Compile Include="View\GraphsView.xaml.cs">
+      <DependentUpon>GraphsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GraphVisualizerView.xaml.cs">
+      <DependentUpon>GraphVisualizerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Converter\InverseBoolToVisibilityConverter.cs" />
+    <Compile Include="View\PropertiesView.xaml.cs">
+      <DependentUpon>PropertiesView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Style\ButtonStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Style\FontSizes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Style\GUIVertexControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\TabControlStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Style\TextBoxStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Style\VertexStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ConsoleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CorrelationsTableView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FactoryViewTemplates.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FiltersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GeneratorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GraphsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\GraphVisualizerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="View\ConsoleView.xaml.cs">
+      <DependentUpon>ConsoleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CorrelationsTableView.xaml.cs">
+      <DependentUpon>CorrelationsTableView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FiltersView.xaml.cs">
+      <DependentUpon>FiltersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\GeneratorView.xaml.cs">
+      <DependentUpon>GeneratorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="View\PropertiesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Migrations\201803151359068_InitialMigration.resx">
+      <DependentUpon>201803151359068_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Graphitty_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\Graphitty_Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 und x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

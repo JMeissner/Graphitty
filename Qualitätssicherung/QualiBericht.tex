@@ -1,0 +1,77 @@
+\documentclass[13pt]{scrreprt}
+\usepackage[utf8]{inputenc} % use utf8 file encoding for TeX sources
+\usepackage[T1]{fontenc}    % avoid garbled Unicode text in pdf
+\usepackage[german]{babel}  % german hyphenation, quotes, etc
+\usepackage{hyperref}       % detailed hyperlink/pdf configuration
+\usepackage{graphicx}       % provides com\dfrac{m}{Nenner}ands for including figures
+\usepackage{csquotes}       % provides \enquote{} macro for "quotes"
+\usepackage[nonumberlist]{glossaries}     % provides glossary commands
+\usepackage{enumitem}
+\usepackage[center]{caption}
+\usepackage[export]{adjustbox}
+\newcounter{tempcounter1}
+\newcounter{tempcounter2}
+\newcounter{tempcounter3}
+\newcounter{tempcounter4}
+\newcounter{tempcounter5}
+\newcounter{tempcounter6}
+\newcounter{tempcounter7}
+\newcounter{tempcounter8}
+\newcounter{tempcounter9}
+
+\makenoidxglossaries
+
+
+\title{
+	\includegraphics[scale=0.5,center]{OfficialLogo.png}
+	\\
+Qualitätssicherungsbericht
+}
+\author{\\ \\ \\ \\ Marijan Petričević, Christoph Hartmann, Clara Walendy,\\
+	 Jakob Dräger, Julius Meißner}
+
+\begin{document}
+\maketitle
+
+
+% Platzierung des Inhaltsverzeichnisses
+\tableofcontents
+
+
+\chapter{Einleitung}
+Dieses Dokument beschreibt die Qualitätssicherung der Software Graphitty im Rahmen des PSE's im Wintersemester 17/18 am Karlsruher Institut für Technologie. Das Projekt wurde am Lehrstuhl für Systeme der Informationsverwaltung angeboten.
+Das Dokument zeigt die Änderungen, die während der Phase gemacht wurden und die Codeüberdeckungen der Module der Software.
+
+
+\chapter{Wichtige Änderungen}
+\section{View und ViewModel}
+\begin{description}
+\item[Kantenerstellung] Der Benutzer kann Kanten nun durch Drag'n Drop von einem Knoten zu einem anderen hinzufügen.
+\item[Graph Kontextmenü] Es gibt jetzt ein Menü zu jedem Graph, in dem man den BFS-Code und das Profil kopieren kann, und sich das Profil anzeigen lassen kann.
+\end{description}
+
+\section{Model}
+In allen Klassen die eine Instanz verwenden, die IUnitOfWork implementieren, wurde ein Konstruktor hinzugefügt mit dem man diese setzen kann. Zu diesen Klassen gehören: AlgorithmRunner, (NextDenser)Generator, CorrelationsTableViewModel, FiltersViewModel, GraphsViewModel, GraphVisualizerViewModel und MainViewModel. Somit kann der Datenbankzugriff beliebig ausgetauscht werden, was zum Beispiel das Testen mit Mock-Klassen ermöglicht.
+\subsection{Algorithms}
+\begin{description}
+\item [Cliquen String] Die Art die Anzahl Cliquen eines Graphen zu Speichern wurde zur besseren Lesbarkeit geändert. Um die Cliquengröße sind jetzt Apostrophe.
+\item[Totalfärbung für Hufeisengraphen] Der Totalfärbungsalgorithmus hat Graphen in Form eines Hufeisens (oder einer Linie) nicht richtig eingefärbt. Es wurde eine Ausnahmebehandlung für diese Graphen in TotalColoring in Algorithms hinzugefügt.
+\item[ColorGraph mit randomisierter Methode] ColorGraph berechnet eine Totalfärbung von einem Graphen mit einer bestimmten totalchromatischen Zahl. Das hat lang gedauert. Die Rechenzeit wurde verkürzt, indem nur 25 Mal versucht wird eine Färbung zu berechnen und dann die Knoten-IDs zufällig neu verteilt werden.
+\end{description}
+
+\subsection{Filters}
+\begin{description}
+\item[FilterNumCliques] FilterNumCliques hat bisher eine NumberFormatException geworfen, wenn ein Graph keine Cliquen hat. Dies wurde behoben indem eine Kontrolle eingebaut wurde, ob der Cliquenstring '\# Edges' ist.
+\end{description}
+
+\subsection{GraphGeneration}
+\begin{description}
+\item[NextDenserGenerator] Der NextDenserGenerator hat bisher nur mit Graphen bis zu 11 Knoten funktioniert. Zur Verarbeitung des Bitvektors wurde seine String Repräsentation beibehalten und eine binäre Addition für Strings implementiert.
+\end{description}
+
+\chapter{Visualisierung der Codeabdeckung}
+
+\glsaddall
+\printnoidxglossaries
+
+\end{document}

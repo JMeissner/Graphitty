@@ -1,0 +1,197 @@
+﻿<UserControl
+    x:Class="Graphitty.View.PropertiesView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converter="clr-namespace:Graphitty.View.Converter"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="300"
+    d:DesignWidth="1000"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <converter:BooleanToColorConverter x:Key="BooleanToColorConverter" />
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!--  General Properties  -->
+        <GroupBox Grid.Column="0" Header="Structural Properties">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Content="Bitvector: " />
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Content="{Binding Graph.BFSCodeBitvector}"
+                    ToolTip="{Binding Graph.BFSCodeBitvector}"
+                    ToolTipService.ShowDuration="120000" />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Content="# Vertices: " />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Content="{Binding Graph.NumVertices, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Content="# Edges: " />
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Content="{Binding Graph.NumEdges, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, BindsDirectlyToSource=True}" />
+                <Label
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Content="Average Vertex Degree: " />
+                <Label
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    Content="{Binding Graph.AverageVertexDegree, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, StringFormat=N2}" />
+                <Label
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    Content="Max. Vertex Degree: " />
+                <Label
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    Content="{Binding Graph.MaxVertexDegree, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            </Grid>
+        </GroupBox>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <!--  Cliques  -->
+            <GroupBox Header="Cliques">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Content="Size of the largest Clique: " />
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Content="{Binding Graph.LargestCliqueSize, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Content="# k-Cliques: " />
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Content="{Binding Graph.NumCliquesOfSizeK, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                </Grid>
+            </GroupBox>
+
+            <!--  Density  -->
+            <GroupBox Grid.Row="1" Header="Density">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Content="# Denser Graphs BFS: " />
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Content="{Binding Graph.NumDenserGraphsBFS, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Content="# Denser Graphs Profile: " />
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Content="{Binding Graph.NumDenserGraphsProfile, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                </Grid>
+            </GroupBox>
+        </Grid>
+
+        <!--  Total Coloring  -->
+        <GroupBox Grid.Column="2" Header="Total Coloring">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Content="TCC Fullfilled? " />
+                <Label Grid.Row="0" Grid.Column="1">
+                    <Ellipse
+                        Width="10"
+                        Height="10"
+                        Fill="{Binding Graph.IsTCCFulfilled, Converter={StaticResource BooleanToColorConverter}, UpdateSourceTrigger=PropertyChanged, Mode=OneWay, FallbackValue=Blue}" />
+                </Label>
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Content="Total Chromatic Number χ: " />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Content="{Binding Graph.TotalChromaticNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Content="Min. Coloring Complexity: " />
+                <TextBlock Grid.Row="2" Grid.Column="1">
+                    <Run Text="{Binding Graph.MinimalColouringComplexityInMiliSeconds, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <Run Text=" ms" />
+                </TextBlock>
+                <Label
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Content="# Graphs &lt; = χ: " />
+                <Label
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    Content="{Binding Graph.NumGraphsWithSmallerEqualChromaticNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            </Grid>
+        </GroupBox>
+    </Grid>
+</UserControl>

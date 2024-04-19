@@ -1,0 +1,6 @@
+﻿namespace GraphittyTest
+{
+    class TestHelper
+    {
+    }
+}

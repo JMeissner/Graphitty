@@ -1,0 +1,11 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Graphitty.Style">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="FontSizes.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    <Style BasedOn="{DynamicResource MetroButton}" TargetType="{x:Type Button}">
+        <Setter Property="FontSize" Value="{DynamicResource StandardFontSize}" />
+    </Style>
+</ResourceDictionary>
