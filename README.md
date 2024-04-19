@@ -2,6 +2,6 @@
 
 ### Requirement Analysis ✅
 ### System Design        ✅
-### Implementation
-### Testing
-### Deployment
+### Implementation       ✅
+### Testing              ✅
+### Deployment           ✅
